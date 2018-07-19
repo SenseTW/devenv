@@ -67,9 +67,5 @@ USER hypothesis
 
 RUN mkdir -p /var/lib/hypothesis/node_modules
 RUN chown -R hypothesis:hypothesis /var/lib/hypothesis/node_modules
-RUN mkdir -p /var/lib/hypothesis/.npm
-RUN chown -R hypothesis:hypothesis /var/lib/hypothesis/.npm
-RUN mkdir -p /var/lib/hypothesis/.config
-RUN chown -R hypothesis:hypothesis /var/lib/hypothesis/.config
 
 ENTRYPOINT ["/entrypoint.sh"]
