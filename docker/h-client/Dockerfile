@@ -22,8 +22,8 @@ RUN apt-get update -qqy && apt-get install -qqy \
     npm install -g gulp
 
 # PUT FILE
-COPY install_client.sh /opt/
+COPY entrypoint.sh /opt/
 COPY ./client-conf /opt/client-conf
 COPY nginx-site.conf /etc/nginx/sites-enabled/default
 
-ENTRYPOINT ["/opt/install_client.sh"]
+ENTRYPOINT ["/opt/entrypoint.sh"]
