@@ -19,12 +19,13 @@ git submodule init
 ```
 docker-compose up
 ```
-接著靜待安裝
+接著靜待安裝, 及啟動. 可按下 Ctrl+C 停止運行, 但僅暫停 Container 運作.
 
 # 移除
 ```
 docker-compose down
 ```
+該指令將會清除現有 Container
 
 # 清除資料庫
 ```
