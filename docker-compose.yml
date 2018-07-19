@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    image: "postgres:9.6"
+    restart: always
+    env_file:
+     - ./env/pg.env
+    volumes:
+     - ./data/pgdata:/var/lib/postgresql/data
+    ports:
+     - "5432:5432"
+  api:
+    image: "sensetw-api"
+    env_file:
+     - ./env/sensemap-backend.env
+    volumes:
+     - ./src/sensetw/sensemap-backend:/workspace
+    ports:
+     - "8000:8000"
+     - "9230:9229"
+  hclient:
+    image: "h-client"
+    volumes:
+     - ./src/client:/workspace
+    ports:
+     - "8020:8020"
+  via:
+    image: "via"
+    env_file:
+     - ./env/via.env
+    volumes:
+     - ./src/via:/var/lib/via
+    ports:
+     - "8030:9080"

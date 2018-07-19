@@ -1,0 +1,9 @@
+[submodule "src/sensetw"]
+	path = src/sensetw
+	url = https://github.com/SenseTW/sensetw.git
+[submodule "src/client"]
+	path = src/client
+	url = https://github.com/SenseTW/client.git
+[submodule "src/via"]
+	path = src/via
+	url = https://github.com/SenseTW/via.git
