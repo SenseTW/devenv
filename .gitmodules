@@ -7,3 +7,6 @@
 [submodule "src/via"]
 	path = src/via
 	url = https://github.com/SenseTW/via.git
+[submodule "src/h"]
+	path = src/h
+	url = https://github.com/SenseTW/h.git

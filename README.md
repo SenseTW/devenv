@@ -34,10 +34,15 @@ rm -rf data
 
 # Port
 - PostgreSQL: localhost:5432
+- elastic: localhost:9200,9300
+- rabbit: localhost:5672,15672
 - Sensemap-Backend: localhost:8000
 - Sensemap: localhost:8010
 - client: localhost:8020
 - via: localhost:8030
+- h: localhost:8040
+  - admin/admin
+  - test/test
 
 # 開發環境架構
 

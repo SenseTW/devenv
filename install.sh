@@ -14,6 +14,7 @@ fi
 
 mkdir -p data
 mkdir -p data/pgdata
+mkdir -p data/elastic
 
 # Pull all subbmodules
 git submodule update --recursive --remote
@@ -26,3 +27,7 @@ docker build -t h-client docker/h-client/.
 
 # Build H via Image
 docker build -t via docker/via/.
+
+# Build H Image
+docker build -t h docker/h/.
+
