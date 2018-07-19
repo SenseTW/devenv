@@ -1,7 +1,7 @@
 FROM alpine:3.7
 
 # Install system build and runtime dependencies.
-RUN apk add --no-cache \
+RUN apk update && apk add --no-cache \
     ca-certificates \
     collectd \
     collectd-nginx \
@@ -67,5 +67,9 @@ USER hypothesis
 
 RUN mkdir -p /var/lib/hypothesis/node_modules
 RUN chown -R hypothesis:hypothesis /var/lib/hypothesis/node_modules
+RUN mkdir -p /var/lib/hypothesis/.npm
+RUN chown -R hypothesis:hypothesis /var/lib/hypothesis/.npm
+RUN mkdir -p /var/lib/hypothesis/.config
+RUN chown -R hypothesis:hypothesis /var/lib/hypothesis/.config
 
 ENTRYPOINT ["/entrypoint.sh"]

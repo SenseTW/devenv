@@ -52,5 +52,7 @@ services:
     volumes:
      - ./src/h:/var/lib/hypothesis
      - /var/lib/hypothesis/node_modules
+     - /var/lib/hypothesis/.npm
+     - /var/lib/hypothesis/.config
     ports:
      - "8040:8040"
