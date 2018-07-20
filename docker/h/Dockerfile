@@ -11,7 +11,9 @@ RUN apk update && apk add --no-cache \
     python2 \
     py2-pip \
     nodejs \
-    git
+    git \
+    postgresql-client \
+    curl
 
 # Create the hypothesis user, group, home directory and package directory.
 RUN addgroup -g 1000 -S hypothesis && adduser -u 1000 -S -G hypothesis -h /var/lib/hypothesis hypothesis
