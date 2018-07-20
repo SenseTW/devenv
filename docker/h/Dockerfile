@@ -14,7 +14,7 @@ RUN apk update && apk add --no-cache \
     git
 
 # Create the hypothesis user, group, home directory and package directory.
-RUN addgroup -S hypothesis && adduser -S -G hypothesis -h /var/lib/hypothesis hypothesis
+RUN addgroup -g 1000 -S hypothesis && adduser -u 1000 -S -G hypothesis -h /var/lib/hypothesis hypothesis
 WORKDIR /var/lib/hypothesis
 
 # Ensure nginx state and log directories writeable by unprivileged user.
@@ -62,10 +62,13 @@ ENV PYTHONPATH /var/lib/hypothesis:$PYTHONPATH
 ADD conf/supervisord.conf /supervisord.conf
 ADD entrypoint.sh /entrypoint.sh
 
+RUN mkdir -p /var/lib/hypothesis/node_modules \
+  && chown -R hypothesis:hypothesis /var/lib/hypothesis/node_modules
+
+VOLUME /var/lib/hypothesis
+VOLUME /var/lib/hypothesis/node_modules
+
 # Start the web server by default
 USER hypothesis
-
-RUN mkdir -p /var/lib/hypothesis/node_modules
-RUN chown -R hypothesis:hypothesis /var/lib/hypothesis/node_modules
 
 ENTRYPOINT ["/entrypoint.sh"]
