@@ -4,17 +4,12 @@ cd /workspace
 yarn
 
 echo "Checking Database Connection ..."
-while true; do
-    CHECK_RESULT=$( yarn --silent run dbms:verify )
-    if [ "$CHECK_RESULT" == "connected" ] || [ "$CHECK_RESULT" == "nodb" ]
-    then
-      echo "$CHECK_RESULT"
-      break
-    fi
-    sleep 1s
+while ! pg_isready -h db -p 5432 > /dev/null 2> /dev/null; do
+    echo "Waiting for psql://db:5432/ ..."
+    sleep 3
 done
 
-yarn --silent run db:create
+#yarn --silent run db:create
 yarn run migrate up
 
 echo "Start Sensemap Backend Service ..."
