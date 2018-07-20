@@ -32,7 +32,7 @@ docker-compose down
 rm -rf data
 ```
 
-# Port
+# Network Port
 - PostgreSQL: localhost:5432
 - elastic: localhost:9200,9300
 - rabbit: localhost:5672,15672
@@ -44,7 +44,15 @@ rm -rf data
   - admin/admin
   - test/test
 
-# 開發環境架構
+# 基本設定
+- h 預設管理員帳密為 admin/admin
+
+# 環境架構
+下圖為 Docker Images 架構
+![Image of Docker-Image Arch](images/arch-2.png)
+下圖為 Docker Compose 架構
+![Image of Docker-Compose Arch](images/arch-1.png)
+
 
 # 使用方法
 - src 所放置的程式碼皆以 submodule 的方式放進來, 請依照 submodule 的規則進行操作
