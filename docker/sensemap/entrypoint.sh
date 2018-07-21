@@ -3,5 +3,4 @@
 cd /workspace
 
 yarn
-# 替換API URL
-PUBLIC_URL="" yarn run build
+PUBLIC_URL="" yarn run start

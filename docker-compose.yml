@@ -31,6 +31,14 @@ services:
     ports:
      - "8000:8000"
      - "9230:9229"
+  front:
+    image: "sensemap"
+    env_file:
+     - ./env/sensemap.env
+    volumes:
+     - ./src/sensetw/sensemap:/workspace
+    ports:
+     - "8010:3000"
   hclient:
     image: "h-client"
     volumes:

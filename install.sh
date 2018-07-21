@@ -22,6 +22,9 @@ git submodule update --recursive --remote
 # Build API Image
 docker build -t sensetw-api docker/sensemap-backend/.
 
+# Build Sensemap Image
+docker build -t sensemap docker/sensemap/.
+
 # Build H Client Image
 docker build -t h-client docker/h-client/.
 
