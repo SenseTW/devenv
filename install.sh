@@ -32,5 +32,5 @@ docker build -t h-client docker/h-client/.
 docker build -t via docker/via/.
 
 # Build H Image
-docker build -t h docker/h/.
+# docker build -t h docker/h/.
 

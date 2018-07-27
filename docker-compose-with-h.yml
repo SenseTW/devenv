@@ -7,8 +7,21 @@ services:
      - ./env/pg.env
     volumes:
      - ./data/pgdata:/var/lib/postgresql/data
+     - ./docker/pg:/docker-entrypoint-initdb.d/
     ports:
      - "5432:5432"
+  elastic:
+    image: "nickstenning/elasticsearch-icu"
+    volumes:
+     - ./data/elastic:/usr/share/elasticsearch/data
+    ports:
+     - "9200:9200"
+     - "9300:9300"
+  rabbit:
+    image: "rabbitmq:latest"
+    ports:
+     - "5672:5672"
+     - "15672:15672"
   api:
     image: "sensetw-api"
     env_file:
@@ -40,3 +53,12 @@ services:
      - ./src/via:/var/lib/via
     ports:
      - "8030:9080"
+  h:
+    image: "h"
+    env_file:
+     - ./env/h.env
+    volumes:
+     - ./src/h:/var/lib/hypothesis
+     - /var/lib/hypothesis/node_modules
+    ports:
+     - "8040:8040"
